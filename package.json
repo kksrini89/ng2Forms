@@ -10,6 +10,10 @@
     "pree2e": "webdriver-manager update",
     "e2e": "protractor"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kksrini89/ng2Forms.git"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~2.1.0",
