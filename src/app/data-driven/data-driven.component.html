@@ -36,9 +36,17 @@
         </label> </div>
     </div>-->
 
+        <div formArrayName="hobbies">
+          <h2>Hobbies</h2>
+          <div class="form-group" *ngFor="let item of myForm.controls['hobbies'].controls;let i= index">
+            <input type="text" class="form-control" formControlName="{{i}}">
+          </div>
+        </div>
+
+        <button type="button" class=" btn btn-primary" (click)="onAddHobby()">Add Hobby</button>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
           </div>
         </div>
       </form>

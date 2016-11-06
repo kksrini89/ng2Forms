@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -19,11 +19,16 @@ export class DataDrivenComponent implements OnInit {
         "email": new FormControl('srini@yahoo.com', [Validators.required, Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")])
       }),
       "password": new FormControl('test', Validators.required),
-      "gender": new FormControl('male')
+      "gender": new FormControl('male'),
+      "hobbies": new FormArray([new FormControl('Cooking', Validators.required)])
     });
   }
 
   ngOnInit() {
+  }
+
+  onAddHobby() {
+    (<FormArray>this.myForm.controls['hobbies']).push(new FormControl('', Validators.required));
   }
 
   onSubmit() {
