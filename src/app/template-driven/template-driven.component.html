@@ -1,29 +1,34 @@
 <div class="content">
-  <h2>Template Driven</h2>
-  <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <div ngModelGroup="userData">
-      <div class="form-group">
-        <label for="username" class="col-sm-2 control-label">UserName</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="username" placeholder="UserName" [(ngModel)]="user.name" name="username" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-6">
-          <input #mail="ngModel" type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="user.email" name="email" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
-          <div *ngIf="!mail.valid"><span>Invalid Email</span></div>
-        </div>
-      </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Template Driven
     </div>
-    <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-6">
-        <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password"
-          required>          
-      </div>
-    </div>
-    <!--<div class="form-group">
+    <div class="panel-body">
+      <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div ngModelGroup="userData">
+          <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">UserName</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="username" placeholder="UserName" [(ngModel)]="user.name" name="username" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-6">
+              <input #mail="ngModel" type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="user.email" name="email"
+                required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+              <div *ngIf="!mail.valid"><span>Invalid Email</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-6">
+            <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password"
+              required>
+          </div>
+        </div>
+        <!--<div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
           <label>
@@ -32,10 +37,12 @@
         </div>
       </div>
     </div>-->
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
-      </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
